@@ -32,6 +32,10 @@
    background-color: #555;
 }
 
+.menu-toggle{
+    display: none;
+}
+
 .footer {
     position: fixed;
     bottom: 0;
@@ -85,7 +89,6 @@
     border-radius: 5px;
 }
 
-
 .products-container{
     padding: 19px;
     display: flex;
@@ -103,7 +106,7 @@
     }
 }
 
-@media(min-width:951px){
+@media(min-width: 951px){
     .container{
         background-color:antiquewhite;
     }
@@ -112,4 +115,15 @@
         position: absolute;
         left: 24px;
     }
+}
+
+@media(max-width: 565px){
+    .navbar ul li a{
+        display: none;
+    }
+
+    .navbar li a.menu-toggle{
+        display: block;
+    }
+    
 }
