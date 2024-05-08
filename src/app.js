@@ -7,7 +7,7 @@ const methodOverride  = require("method-override");
 
 //Routes
 const indexRouter = require('./routes/index');
-//const productsRouter = require('./routes/productsRoutes');
+const productsRouter = require('./routes/productsRoutes');
 
 //ruta de vistas para view engine
 app.set( "view engine", "ejs" );
@@ -27,4 +27,7 @@ app.listen(3001 , ()=>{
 
 //ruta raiz
 app.use('/', indexRouter);
+
+//ruta productos
+app.use(productsRouter);
 

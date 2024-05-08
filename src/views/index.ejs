@@ -14,7 +14,7 @@
         <ul class="menu-items">
             <li><a class="menu-toggle" href="#">&#9776; Menu</a></li>
             <li><a href="#">Inicio</a></li>
-            <li><a href="#">Servicios</a></li>
+            <li><a href="/products">Productos</a></li>
             <li><a href="#">Acerca de</a></li>
             <li><a href="#">Contacto</a></li>  
         </ul>
@@ -24,7 +24,7 @@
         <ul>
             <% products.forEach(product => { %>
                 <h2><%= product.product_name %></h2>
-                
+
                 <p>Artista: 
                     <% artists.forEach(artist => { %>
                         <% if (product.artist_fk == artist.id_artist) { %>
@@ -41,26 +41,9 @@
                     <button id="<%= product.id_product %>" type="submit" name="detail">Ver Detallado</button>
                 </form>
 
-                <form action="/edit" method="POST">
-                    <label for="edit"></label>
-                    <button id="<%= product.id_product %>" type="submit" name="edit">Editar</button>
-                </form>
-                
-                <form action="/erase" method="POST">
-                    <label for="erase"></label>
-                    <button id="<%= product.id_product %>" type="submit" name="erase">Borrar</button>
-                </form>
-
             <% }); %>
 
-                
-            
         </ul>
-        
-    </main>
-
-    <a href="/create">Crear un nuevo Producto</a>
-        
 
     </main>
 

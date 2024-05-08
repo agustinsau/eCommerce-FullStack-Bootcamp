@@ -17,7 +17,20 @@ const productsController = {
             res.render(path.resolve(__dirname, '..', 'views', 'index'), { products, genres, artists });
         })
         .catch(err => console.log(err));
-    }
+    },
+    
+    list: (req, res) => {
+        Promise.all([
+            Products.findAll(),
+        ])
+        .then(([products]) => {
+            res.render(path.resolve(__dirname, '..', 'views', 'productsList'), { products });
+        })
+        .catch(err => console.log(err));
+    },
+    
 };
+
+
 
 module.exports = productsController;

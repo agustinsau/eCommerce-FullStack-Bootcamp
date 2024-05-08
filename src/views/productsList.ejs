@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+</head>
+    <body>
+        <div>
+            <h1>Listado de Productos Disponibles</h1>
+            <ul>
+                <% products.forEach(product => { %>
+                    <p><a href="#"> <%= product.product_name %> </a> <%= product.country %> <%= product.product_format %> </p>           
+                
+                    <form action="/edit" method="POST">
+                        <label for="edit"></label>
+                        <button id="<%= product.id_product %>" type="submit" name="edit">Editar</button>
+                    </form>
+                    
+                    <form action="/erase" method="POST">
+                        <label for="erase"></label>
+                        <button id="<%= product.id_product %>" type="submit" name="erase">Borrar</button>
+                    </form>
+
+                <% }); %>
+            </ul>
+        </div>
+    </body>
+</html>
