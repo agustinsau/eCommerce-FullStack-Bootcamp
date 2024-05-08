@@ -34,6 +34,11 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
 
+        price:{
+            type:DataTypes.DECIMAL(10,2),
+            allowNull: false,
+        },
+
         genre_fk:{
             type:DataTypes.BIGINT(11).UNSIGNED,
             allowNull: false, 
@@ -46,23 +51,22 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     let config = {
-        timestamps: true,
-        createAt: 'created_at',
-        updateAt: 'updated_at',
-        deletedAt: false
+        tableName: 'products',
+        timestamps: false,
+        underscored: true,
     };
 
     const Product = sequelize.define(alias, cols, config); //paso mis 3 parametros recien creados
 
     Product.associate = function(models){
-        Product.belongsTo(models.Genre, { //belongs to es la asociacion de la tabla. Una a una, una a muchas, etc
+        Product.belongsTo(models.Genre, { //belongs to es la asociacion de la tabla. Una a muchas, etc
             as: 'genre',
-            foreignKey: 'id_genre'
+            foreignKey: 'genre_fk'
         });
 
         Product.belongsTo(models.Artist, { 
             as: 'artist',
-            foreignKey: 'id_artist'
+            foreignKey: 'artist_fk'
         });
     }
 

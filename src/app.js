@@ -1,15 +1,19 @@
+//Incluyo todas las dependencias que necesito en mi entry point
+
 const express =  require('express');
 const path = require("path");
 const app = express();
 const methodOverride  = require("method-override");
 
 //Routes
-const indexRouter = require("./routes/index");
-const productsRouter = require("./routes/productsRoutes");
+const indexRouter = require('./routes/index');
+//const productsRouter = require('./routes/productsRoutes');
 
-app.set('views', path.resolve(__dirname, './views'));
+//ruta de vistas para view engine
 app.set( "view engine", "ejs" );
+app.set('views', path.resolve(__dirname, './views'));
 
+//ruta recursos estaticos
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(express.urlencoded({extended:false}));
@@ -19,5 +23,8 @@ app.listen(3001 , ()=>{
     console.log("Server is running on port 3001")
 });
 
-app.use("/", indexRouter);
-app.use(productsRouter);
+//Uso de rutas
+
+//ruta raiz
+app.use('/', indexRouter);
+

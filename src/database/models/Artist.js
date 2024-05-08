@@ -21,10 +21,9 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     let config = {
-        timestamps: true,
-        createAt: 'created_at',
-        updateAt: 'updated_at',
-        deletedAt: false
+        tableName: "artists",
+        timestamps: false,
+        underscored: true,
     }
 
     const Artist = sequelize.define(alias, cols, config);
