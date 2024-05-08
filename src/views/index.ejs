@@ -21,8 +21,46 @@
     </nav>
 
     <main>
-        
+        <ul>
+            <% products.forEach(product => { %>
+                <h2><%= product.product_name %></h2>
+                
+                <p>Artista: 
+                    <% artists.forEach(artist => { %>
+                        <% if (product.artist_fk == artist.id_artist) { %>
+                            <%= artist.name %>
+                        <% } %>
+                    <% }); %>    
+                </p>
 
+                <p>Pais: <%= product.country %></p>
+                <p>Precio: <%= product.price %></p>
+                
+                <form action="/detail/<%= product.id_product %>" method="POST">
+                    <label for="detail"></label>
+                    <button id="<%= product.id_product %>" type="submit" name="detail">Ver Detallado</button>
+                </form>
+
+                <form action="/edit" method="POST">
+                    <label for="edit"></label>
+                    <button id="<%= product.id_product %>" type="submit" name="edit">Editar</button>
+                </form>
+                
+                <form action="/erase" method="POST">
+                    <label for="erase"></label>
+                    <button id="<%= product.id_product %>" type="submit" name="erase">Borrar</button>
+                </form>
+
+            <% }); %>
+
+                
+            
+        </ul>
+        
+    </main>
+
+    <a href="/create">Crear un nuevo Producto</a>
+        
 
     </main>
 
