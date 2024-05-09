@@ -66,7 +66,38 @@ const productsController = {
         })
         .catch(err => console.log(err));
     },
-    
+
+    edit: function (req, res){
+        Promise.all([
+            Products.findByPk(req.params.id),
+            Genres.findAll(),
+            Artists.findAll()
+        ])
+        .then(([product, genres, artists]) => {
+            res.render(path.resolve(__dirname, '..', 'views', 'productUpdate'), { product, genres, artists });
+        })
+        .catch(err => console.log(err));
+    },
+
+    update: (req, res) => {
+        Products.update({
+            product_name: req.body.name,
+            label: req.body.label,
+            product_format: req.body.format,
+            country: req.body.country,
+            released: req.body.released,
+            price: req.body.price,
+            genre_fk: req.body.genre,
+            artist_fk: req.body.artist
+        },
+        {
+            where: { id_product: req.params.id }
+        }
+        ).then(() => {
+            return res.redirect('/products')
+        })
+        .catch(err => console.log(err));
+    }, 
 };
 
 module.exports = productsController;

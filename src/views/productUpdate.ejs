@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/form.css">
+    <title>Modificar Producto</title>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Modificar el Producto: <%= product.product_name %> </h2>
+        <form action="/product/update/<%= product.id_product %>?_method=PUT" method="POST">
+
+            <label for="name">Nombre del Producto: </label>
+            <input type="text"  id="name" name="name" value="<%= product.product_name %>" required>
+        
+            <label for="label">Sello Discografico: </label>
+            <input type="text"  id="label" name="label" value="<%= product.label %>" required>
+        
+            <label for="format">Formato de Producto: </label>
+            <input type="text"  id="format" name="format" value="<%= product.product_format %>" required>
+        
+            <label for="country">Pais Lanzamiento: </label>
+            <input type="text"  id="country" name="country" value="<%=  product.country %>" required>
+        
+            <label for="released">Fecha lanzamiento: </label>
+            <input type="date"  id="released" name="released" value="<%= product.released %>" required>
+
+            <label for="price">Precio: </label>
+            <input type="text" pattern="\d+(\.\d{1,2})?" id="price" name="price" value="<%= product.price %>" required>
+        
+            <label for="genre">Género:</label>
+            <select name="genre" id="genre" required>
+                <% genres.forEach(genre => { %>
+                    <option value="<%= genre.id_genre %>" <% if (genre.id_genre == product.genre_fk) { %><%= 'selected' %><% }; %>><%= genre.name %></option>
+                <% }); %>
+            </select>
+
+            <select name="artist" id="artist" required>
+                <% artists.forEach(artist => { %>
+                    <option value="<%= artist.id_artist %>" <% if (artist.id_artist == product.artist_fk) { %><%= 'selected' %><% }; %>><%= artist.name %></option>
+                <% }); %>
+            </select>
+        
+            <button type="submit">Modificar Producto</button>
+            
+        </form>
+    </div>
+</body>
+
+</html>

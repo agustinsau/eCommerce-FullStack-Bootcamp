@@ -19,14 +19,14 @@
     
     <br>
 
-    <form action="/edit" method="POST">
-        <label for="edit"></label>
-        <button id="<%= product.id_product %>" type="submit" name="edit">Editar</button>
+    <form action="/product/edit/<%= product.id_product %>" method="GET">
+        <label for="update"></label>
+        <button id="<%= product.id_product %>" type="submit" name="update">Modificar</button>
     </form>
 
-    <form action="/erase" method="POST">
-        <label for="erase"></label>
-        <button id="<%= product.id_product %>" type="submit" name="erase">Borrar</button>
+    <form action="/product/delete/<%= product.id_product %>" method="POST">
+        <label for="delete"></label>
+        <button id="<%= product.id_product %>" type="submit" name="delete">Borrar</button>
     </form>
 
 </body>
