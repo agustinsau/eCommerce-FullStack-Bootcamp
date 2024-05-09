@@ -10,8 +10,13 @@
             <h1>Listado de Productos Disponibles</h1>
             <ul>
                 <% products.forEach(product => { %>
-                    <p><a href="#"> <%= product.product_name %> </a> <%= product.country %> <%= product.product_format %> </p>           
+                    <p> <%= product.product_name %> <%= product.country %> <%= product.product_format %> </p>           
                 
+                    <form action="/product/detail/<%= product.id_product %>" method="POST">
+                        <label for="detail"></label>
+                        <button id="<%= product.id_product %>" type="submit" name="detail">Ver Detallado</button>
+                    </form>
+
                     <form action="/edit" method="POST">
                         <label for="edit"></label>
                         <button id="<%= product.id_product %>" type="submit" name="edit">Editar</button>
@@ -24,6 +29,9 @@
 
                 <% }); %>
             </ul>
+
+            <a href="/product/add">Agregar Nuevo Producto</a>
+
         </div>
     </body>
 </html>

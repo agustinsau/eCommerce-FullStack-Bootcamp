@@ -36,7 +36,7 @@
                 <p>Pais: <%= product.country %></p>
                 <p>Precio: <%= product.price %></p>
                 
-                <form action="/detail/<%= product.id_product %>" method="POST">
+                <form action="/product/detail/<%= product.id_product %>" method="POST">
                     <label for="detail"></label>
                     <button id="<%= product.id_product %>" type="submit" name="detail">Ver Detallado</button>
                 </form>

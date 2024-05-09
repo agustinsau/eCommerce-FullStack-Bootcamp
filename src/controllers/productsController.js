@@ -10,11 +10,10 @@ const productsController = {
     showAll: (req, res) => {
         Promise.all([
             Products.findAll(),
-            Genres.findAll(),
             Artists.findAll()
         ])
-        .then(([products, genres, artists]) => {
-            res.render(path.resolve(__dirname, '..', 'views', 'index'), { products, genres, artists });
+        .then(([products, artists]) => {
+            res.render(path.resolve(__dirname, '..', 'views', 'index'), { products, artists });
         })
         .catch(err => console.log(err));
     },
@@ -28,9 +27,37 @@ const productsController = {
         })
         .catch(err => console.log(err));
     },
+
+    add: (req, res) => {
+        Promise.all([
+            Products.findAll(),
+            Genres.findAll(),
+            Artists.findAll()
+        ])
+        .then(([products, genres, artists]) => {
+            res.render(path.resolve(__dirname, '..', 'views', 'productAdd'), { products, genres, artists });
+        })
+        .catch(err => console.log(err));    
+    },
+
+    create: function (req, res){
+        Products.create(
+            {
+                product_name: req.body.name,
+                label: req.body.label,
+                product_format: req.body.format,
+                country: req.body.country,
+                released: req.body.released,
+                price: req.body.price,
+                genre_fk: req.body.genre,
+                artist_fk: req.body.artist
+            }
+        ).then(() => {
+            return res.redirect('/products')
+        })
+        .catch(err => console.log(err));
+    },
     
 };
-
-
 
 module.exports = productsController;

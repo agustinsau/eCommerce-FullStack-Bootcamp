@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/form.css">
+    <name>Document</name>
+</head>
+
+<body>
+    <div class="form-container">
+        <form action="/product/create" method="POST">
+
+            <label for="name">Nombre del Producto: </label>
+            <input type="text"  id="name" name="name" required>
+        
+            <label for="label">Marca: </label>
+            <input type="text"  id="label" name="label" required>
+        
+            <label for="format">Formato de Producto: </label>
+            <input type="text"  id="format" name="format" required>
+        
+            <label for="country">Pais Lanzamiento: </label>
+            <input type="text"  id="country" name="country" required>
+        
+            <label for="released">Fecha lanzamiento: </label>
+            <input type="date"  id="released" name="released" required>
+
+            <label for="price">Precio: </label>
+            <input type="text" pattern="\d+(\.\d{1,2})?" id="price" name="price" required>
+        
+            <label for="genre">Género:</label>
+            <select name="genre" id="genre" required>
+                <% genres.forEach(genre => { %>
+                    <option value="<%= genre.id_genre %>"><%= genre.name %></option>
+                <% }); %>
+            </select>
+
+            <label for="artist">Artista:</label>
+            <select name="artist" id="artist" required>
+                <% artists.forEach(artist => { %>
+                    <option value="<%= artist.id_artist %>"><%= artist.name %></option>
+                <% }); %>
+            </select>
+        
+            <button type="submit">Agregar Película</button>
+        
+            <a href="/movies">Listado de Películas</a>
+            
+        </form>
+    </div>
+</body>
+
+</html>
