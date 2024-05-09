@@ -28,6 +28,15 @@ const productsController = {
         .catch(err => console.log(err));
     },
 
+    detail: (req, res) => {  
+        Products.findByPk(req.params.id, {
+            include: ['genre', 'artist'] //incluyo las tablas relacionadas con sus alias
+        })
+        .then(product => {
+            res.render(path.resolve(__dirname, '..', 'views', 'productDetail'), { product })
+        })
+    },
+
     add: (req, res) => {
         Promise.all([
             Products.findAll(),

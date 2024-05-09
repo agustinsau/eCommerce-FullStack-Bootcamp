@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= product.product_name %></title>
+</head>
+<body>
+
+    <h2><%= product.product_name %></h2>
+    <br>
+    <p>Artista: <%= product.artist.name %></p>
+    <p>Sello Discografico: <%= product.label %></p>
+    <p>Formato del Producto: <%= product.product_format %></p>
+    <p>Pais de Lanzamiento: <%=  product.country %></p>
+    <p>Fecha de Lanzamiento: <%= product.released %></p>
+    <p>Genero Musical: <%= product.genre.name %></p>
+    <p>Precio Unitario: <%= product.price %></p>
+    
+    <br>
+
+    <form action="/edit" method="POST">
+        <label for="edit"></label>
+        <button id="<%= product.id_product %>" type="submit" name="edit">Editar</button>
+    </form>
+
+    <form action="/erase" method="POST">
+        <label for="erase"></label>
+        <button id="<%= product.id_product %>" type="submit" name="erase">Borrar</button>
+    </form>
+
+</body>
+</html>

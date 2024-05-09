@@ -12,7 +12,7 @@
                 <% products.forEach(product => { %>
                     <p> <%= product.product_name %> <%= product.country %> <%= product.product_format %> </p>           
                 
-                    <form action="/product/detail/<%= product.id_product %>" method="POST">
+                    <form action="/product/detail/<%= product.id_product %>" method="GET">
                         <label for="detail"></label>
                         <button id="<%= product.id_product %>" type="submit" name="detail">Ver Detallado</button>
                     </form>
