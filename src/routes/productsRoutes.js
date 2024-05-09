@@ -12,4 +12,7 @@ router.post('/product/create', productsController.create); //crea en la bdd un n
 router.get("/product/edit/:id", productsController.edit); //obtiene el detalle de un producto mediante su id
 router.put("/product/update/:id", productsController.update); //actualizo los datos del producto
 
+router.get("/product/delete/:id", productsController.delete) //voy a la vista de confirmacion de borrado
+router.put("/product/delete/:id", productsController.destroy); //borro el producto de la bdd
+
 module.exports = router;

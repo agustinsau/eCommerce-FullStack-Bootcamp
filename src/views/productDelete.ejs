@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrado de Prodcuto</title>
+</head>
+<body>
+    <h1>Borrado de Producto: <%= product.product_name %></h1>
+    <form action="/product/delete/<%= product.id_product %>?_method=PUT" method="POST">
+        <label for="delete"></label>
+        <button id="<%= product.id_product %>" type="submit" name="delete">Borrar</button>
+    </form>
+
+    
+</body>
+</html>

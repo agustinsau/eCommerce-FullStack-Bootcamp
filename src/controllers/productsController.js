@@ -13,7 +13,7 @@ const productsController = {
             Artists.findAll()
         ])
         .then(([products, artists]) => {
-            res.render(path.resolve(__dirname, '..', 'views', 'index'), { products, artists });
+            return res.render(path.resolve(__dirname, '..', 'views', 'index'), { products, artists });
         })
         .catch(err => console.log(err));
     },
@@ -23,7 +23,7 @@ const productsController = {
             Products.findAll(),
         ])
         .then(([products]) => {
-            res.render(path.resolve(__dirname, '..', 'views', 'productsList'), { products });
+            return res.render(path.resolve(__dirname, '..', 'views', 'productsList'), { products });
         })
         .catch(err => console.log(err));
     },
@@ -33,8 +33,9 @@ const productsController = {
             include: ['genre', 'artist'] //incluyo las tablas relacionadas con sus alias
         })
         .then(product => {
-            res.render(path.resolve(__dirname, '..', 'views', 'productDetail'), { product })
+            return res.render(path.resolve(__dirname, '..', 'views', 'productDetail'), { product })
         })
+        .catch(err => console.log(err));
     },
 
     add: (req, res) => {
@@ -44,7 +45,7 @@ const productsController = {
             Artists.findAll()
         ])
         .then(([products, genres, artists]) => {
-            res.render(path.resolve(__dirname, '..', 'views', 'productAdd'), { products, genres, artists });
+            return res.render(path.resolve(__dirname, '..', 'views', 'productAdd'), { products, genres, artists });
         })
         .catch(err => console.log(err));    
     },
@@ -74,7 +75,7 @@ const productsController = {
             Artists.findAll()
         ])
         .then(([product, genres, artists]) => {
-            res.render(path.resolve(__dirname, '..', 'views', 'productUpdate'), { product, genres, artists });
+            return res.render(path.resolve(__dirname, '..', 'views', 'productUpdate'), { product, genres, artists });
         })
         .catch(err => console.log(err));
     },
@@ -98,6 +99,24 @@ const productsController = {
         })
         .catch(err => console.log(err));
     }, 
+
+    delete: (req, res) => {
+        Products.findByPk(req.params.id)
+        .then(product => {
+           return res.render(path.resolve(__dirname, '..', 'views', 'productDelete'), { product })
+        })
+        .catch(err => console.log(err));
+    },
+
+    destroy: (req, res) => {
+        Products.destroy({
+            where: { id_product: req.params.id }})
+        .then(() => {
+            return res.redirect('/products')
+        })
+        .catch(err => console.log(err));
+    }
+
 };
 
 module.exports = productsController;
