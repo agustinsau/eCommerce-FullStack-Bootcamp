@@ -13,7 +13,7 @@ const productsController = {
             Artists.findAll()
         ])
         .then(([products, artists]) => {
-            return res.render(path.resolve(__dirname, '..', 'views', 'index'), { products, artists });
+            return res.render(path.resolve(__dirname, '..', 'views', 'index'), { products, artists, title: "Home" });
         })
         .catch(err => console.log(err));
     },
@@ -23,17 +23,18 @@ const productsController = {
             Products.findAll(),
         ])
         .then(([products]) => {
-            return res.render(path.resolve(__dirname, '..', 'views', 'productsList'), { products });
+            return res.render(path.resolve(__dirname, '..', 'views', 'productsList'), { products, title: "Listado de Productos" });
         })
         .catch(err => console.log(err));
     },
 
-    detail: (req, res) => {  
+    detail: (req, res) => { 
         Products.findByPk(req.params.id, {
             include: ['genre', 'artist'] //incluyo las tablas relacionadas con sus alias
         })
         .then(product => {
-            return res.render(path.resolve(__dirname, '..', 'views', 'productDetail'), { product })
+            console.log(product.product_name)
+            return res.render(path.resolve(__dirname, '..', 'views', 'productDetail'), { product, title: "Detalle del Producto" })
         })
         .catch(err => console.log(err));
     },
@@ -45,7 +46,7 @@ const productsController = {
             Artists.findAll()
         ])
         .then(([products, genres, artists]) => {
-            return res.render(path.resolve(__dirname, '..', 'views', 'productAdd'), { products, genres, artists });
+            return res.render(path.resolve(__dirname, '..', 'views', 'productAdd'), { products, genres, artists, title: "Agregar Producto" });
         })
         .catch(err => console.log(err));    
     },
@@ -75,7 +76,7 @@ const productsController = {
             Artists.findAll()
         ])
         .then(([product, genres, artists]) => {
-            return res.render(path.resolve(__dirname, '..', 'views', 'productUpdate'), { product, genres, artists });
+            return res.render(path.resolve(__dirname, '..', 'views', 'productUpdate'), { product, genres, artists, title: "Modificar Producto" });
         })
         .catch(err => console.log(err));
     },
@@ -95,7 +96,7 @@ const productsController = {
             where: { id_product: req.params.id }
         }
         ).then(() => {
-            return res.redirect('/products')
+            return res.redirect('/product/detail/'+ req.params.id) //retorno a la vista del producto recien editado
         })
         .catch(err => console.log(err));
     }, 
@@ -103,7 +104,7 @@ const productsController = {
     delete: (req, res) => {
         Products.findByPk(req.params.id)
         .then(product => {
-           return res.render(path.resolve(__dirname, '..', 'views', 'productDelete'), { product })
+           return res.render(path.resolve(__dirname, '..', 'views', 'productDelete'), { product, title: "Eliminar Producto" })
         })
         .catch(err => console.log(err));
     },

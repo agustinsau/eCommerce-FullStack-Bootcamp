@@ -1,53 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/form.css">
-    <title>Agregar Producto</title>
-</head>
+<%- include ('./partials/header') %>
 
 <body>
-    <div class="form-container">
-        <form action="/product/create" method="POST">
-
-            <label for="name">Nombre del Producto: </label>
-            <input type="text"  id="name" name="name" required>
-        
-            <label for="label">Sello Discografico: </label>
-            <input type="text"  id="label" name="label" required>
-        
-            <label for="format">Formato de Producto: </label>
-            <input type="text"  id="format" name="format" required>
-        
-            <label for="country">Pais Lanzamiento: </label>
-            <input type="text"  id="country" name="country" required>
-        
-            <label for="released">Fecha lanzamiento: </label>
-            <input type="date"  id="released" name="released" required>
-
-            <label for="price">Precio: </label>
-            <input type="text" pattern="\d+(\.\d{1,2})?" id="price" name="price" required>
-        
-            <label for="genre">Género:</label>
-            <select name="genre" id="genre" required>
-                <% genres.forEach(genre => { %>
-                    <option value="<%= genre.id_genre %>"><%= genre.name %></option>
-                <% }); %>
-            </select>
-
-            <label for="artist">Artista:</label>
-            <select name="artist" id="artist" required>
-                <% artists.forEach(artist => { %>
-                    <option value="<%= artist.id_artist %>"><%= artist.name %></option>
-                <% }); %>
-            </select>
-        
-            <button type="submit">Agregar Producto</button>
+    <main>
+        <div class="form-container">
+            <form action="/product/create" method="POST">
+    
+                <label for="name">Nombre del Producto: </label>
+                <input type="text"  id="name" name="name" placeholder="Ingrese el nombre del Producto" required>
             
-        </form>
-    </div>
+                <label for="label">Sello Discografico: </label>
+                <input type="text"  id="label" name="label" placeholder="Ingrese Sello Discografico" required>
+            
+                <label for="format">Formato de Producto: </label>
+                <input type="text"  id="format" name="format" placeholder="Ingrese Formato del Producto" required>
+            
+                <label for="country">Pais Lanzamiento: </label>
+                <input type="text"  id="country" name="country" placeholder="Pais de origen del Producto" required>
+            
+                <label for="released">Fecha lanzamiento: </label>
+                <input type="number"  id="released" name="released" placeholder="Año de Lanzamiento" required>
+    
+                <label for="price">Precio: </label>
+                <input type="text" pattern="\d+(\.\d{1,2})?" id="price" name="price" placeholder="Ingrese un Precio" required>
+            
+                <label for="genre">Género:</label>
+                <select name="genre" id="genre" required>
+                    <% genres.forEach(genre => { %>
+                        <option value="<%= genre.id_genre %>"><%= genre.name %></option>
+                    <% }); %>
+                </select>
+    
+                <label for="artist">Artista:</label>
+                <select name="artist" id="artist" required>
+                    <% artists.forEach(artist => { %>
+                        <option value="<%= artist.id_artist %>"><%= artist.name %></option>
+                    <% }); %>
+                </select>
+            
+                <button type="submit">Agregar Producto</button>
+                
+            </form>
+    
+        <!-- Botones para mostrar el modal -->
+        <h2>Necesitas agregar un Genero o Artista nuevo?</h2>
+        <button id="showArtistModal">Agregar Artista</button>
+        <button id="showGenreModal">Agregar Género</button>
+    
+        <!-- Modal para agregar un nuevo artista -->
+        <div id="artistModal" class="modal">
+            <div class="modal-content">
+                <span id="closeModal" class="close">&times;</span>
+                <h2>Agregar Nuevo Artista</h2>
+    
+                <form id="artistForm" action="/artist/create" method="POST">
+                    <label for="artistName">Artista: </label>
+                    <input type="text" name="artistName" placeholder="Nombre del Artista">
+    
+                    <label for="bio">Biografia: </label>
+                    <input type="text" name="bio" placeholder="Biografia del Artista">
+    
+                    <button type="submit">Agregar</button>             
+                </form>
+                <button id="closeModal">Cancelar</button>
+            </div>
+        </div>
+    
+        <!-- Modal para agregar un nuevo género -->
+        <div id="genreModal" class="modal">
+            <div id="closeModal" class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Agregar Nuevo Género</h2>
+                
+                <form id="genreForm">
+                    <label for="genreName">Nombre del Genero: </label>
+                    <input type="text" name="genreName" placeholder="Nombre del Género" >
+                    
+                    <button type="submit">Agregar</button>
+                </form>
+                <button id="closeModal">Cancelar</button>
+            </div>
+        </div>
+    </main>
+
+    <%- include ('./partials/footer') %>
+    
+    <script src="/js/modal.js"></script>
 </body>
 
 </html>

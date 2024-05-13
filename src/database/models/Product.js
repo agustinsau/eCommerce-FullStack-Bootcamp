@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         },
 
         released:{
-            type:DataTypes.DATEONLY,
+            type:DataTypes.BIGINT(11),
             allowNull: false,
         },
 

@@ -1,25 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/form.css">
-</head>
+
+<%- include ('./partials/header') %>
+
 <body>
-
-    <nav class="navbar">
-        <img class="logo" src="images/logo1.png" alt="" srcset="">
-        <ul class="menu-items">
-            <li><a class="menu-toggle" href="#">&#9776; Menu</a></li>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="/products">Productos</a></li>
-            <li><a href="#">Acerca de</a></li>
-            <li><a href="#">Contacto</a></li>  
-        </ul>
-    </nav>
-
     <main>
         <ul>
             <% products.forEach(product => { %>
@@ -47,15 +31,7 @@
 
     </main>
 
-    <footer class="footer">
-        <ul>
-            <li><a href="#">Enlace 1</a></li>
-            <li><a href="#">Enlace 2</a></li>
-            <li><a href="#">Enlace 3</a></li>
-            <li><a href="#">Enlace 4</a></li>
-        </ul>
-    </footer>
+    <%- include ('./partials/footer') %>
    
-    
 </body>
 </html>
