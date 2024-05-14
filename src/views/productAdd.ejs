@@ -48,46 +48,16 @@
         <h2>Necesitas agregar un Genero o Artista nuevo?</h2>
         <button id="showArtistModal">Agregar Artista</button>
         <button id="showGenreModal">Agregar Género</button>
+
+        <%- include ('./partials/artistModal') %>
+
+        <%- include ('./partials/genreModal') %>
     
-        <!-- Modal para agregar un nuevo artista -->
-        <div id="artistModal" class="modal">
-            <div class="modal-content">
-                <span id="closeModal" class="close">&times;</span>
-                <h2>Agregar Nuevo Artista</h2>
-    
-                <form id="artistForm" action="/artist/create" method="POST">
-                    <label for="artistName">Artista: </label>
-                    <input type="text" name="artistName" placeholder="Nombre del Artista">
-    
-                    <label for="bio">Biografia: </label>
-                    <input type="text" name="bio" placeholder="Biografia del Artista">
-    
-                    <button type="submit">Agregar</button>             
-                </form>
-                <button id="closeModal">Cancelar</button>
-            </div>
-        </div>
-    
-        <!-- Modal para agregar un nuevo género -->
-        <div id="genreModal" class="modal">
-            <div id="closeModal" class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Agregar Nuevo Género</h2>
-                
-                <form id="genreForm">
-                    <label for="genreName">Nombre del Genero: </label>
-                    <input type="text" name="genreName" placeholder="Nombre del Género" >
-                    
-                    <button type="submit">Agregar</button>
-                </form>
-                <button id="closeModal">Cancelar</button>
-            </div>
-        </div>
     </main>
 
     <%- include ('./partials/footer') %>
+
     
-    <script src="/js/modal.js"></script>
 </body>
 
 </html>

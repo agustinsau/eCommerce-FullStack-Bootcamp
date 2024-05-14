@@ -5,30 +5,30 @@
 
 <body>
     <main>
-        <ul>
+        <ul class="products-container">
             <% products.forEach(product => { %>
-                <h2><%= product.product_name %></h2>
-
-                <p>Artista: 
-                    <% artists.forEach(artist => { %>
-                        <% if (product.artist_fk == artist.id_artist) { %>
-                            <%= artist.name %>
-                        <% } %>
-                    <% }); %>    
-                </p>
-
-                <p>Pais: <%= product.country %></p>
-                <p>Precio: <%= product.price %></p>
-                
-                <form action="/product/detail/<%= product.id_product %>" method="GET">
-                    <label for="detail"></label>
-                    <button id="<%= product.id_product %>" type="submit" name="detail">Ver Detallado</button>
-                </form>
-
-            <% }); %>
-
+                <div class="product">
+                    <h2><%= product.product_name %></h2>
+    
+                    <p>Artista: 
+                        <% artists.forEach(artist => { %>
+                            <% if (product.artist_fk == artist.id_artist) { %>
+                                <%= artist.name %>
+                            <% } %>
+                        <% }); %>    
+                    </p>
+    
+                    <p>Pais: <%= product.country %></p>
+                    <p>Precio: <%= product.price %></p>
+                    
+                    <form action="/product/detail/<%= product.id_product %>" method="GET">
+                        <label for="detail"></label>
+                        <button id="<%= product.id_product %>" type="submit" name="detail">Ver Detallado</button>
+                    </form>
+                </div>        
+            <% }); %>   
+            
         </ul>
-
     </main>
 
     <%- include ('./partials/footer') %>
