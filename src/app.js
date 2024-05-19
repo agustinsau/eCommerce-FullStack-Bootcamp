@@ -4,7 +4,6 @@ const express =  require('express');
 const path = require("path");
 const app = express();
 const methodOverride = require("method-override");
-//const btstrap = require("bootstrap");
 
 //Routes
 const indexRouter = require('./routes/index');
@@ -16,13 +15,6 @@ app.set('views', path.resolve(__dirname, './views'));
 
 // Configurar la carpeta 'public' para servir archivos estáticos
 app.use(express.static(path.join(__dirname, '../public')));
-
-// Configurar rutas para Bootstrap CSS y JS desde 'node_modules'
-// Sirve los archivos CSS de Bootstrap
-//app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
-
-// Sirve los archivos JavaScript de Bootstrap
-//app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
 
 app.use(express.urlencoded({extended:false}));
 app.use(methodOverride("_method"));

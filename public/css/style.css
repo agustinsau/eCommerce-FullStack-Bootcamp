@@ -98,6 +98,93 @@ body {
     border-radius: 5px;
 }
 
+/* CARD */
+
+.custom-card {
+    width: 400px; /* Ajusta el ancho de la tarjeta */
+}
+
+.custom-carousel img {
+    height: 250px; /* Ajusta la altura de las imágenes del carrusel */
+    object-fit: cover; /* Asegura que las imágenes se ajusten bien dentro del carrusel */
+}
+
+/* BUTTOM BUY */
+
+.button {
+    --color: #00A97F;
+    --hover-color: #FFFFFF;
+    width: 11rem;
+    padding: 16px;
+    background-color: var(--color);
+    border-radius: .3em;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 17px;
+    border: 1px solid var(--color);
+    font-family: inherit;
+    text-transform: uppercase;
+    color: var(--hover-color);
+    z-index: 1;
+}
+
+.button::before, .button::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: var(--hover-color);
+    transition: 1s ease;
+}
+
+.button::before {
+    top: -1em;
+    left: -1em;
+}
+
+.button::after {
+    left: calc(100% + 1em);
+    top: calc(100% + 1em);
+}
+
+.button:hover::before, .button:hover::after {
+    height: 410px;
+    width: 410px;
+}
+
+.button:hover {
+    color: var(--color);
+    background-color: var(--hover-color);
+    border-color: black;
+}
+
+.button:active {
+    filter: brightness(.8);
+}
+
+/* BUTTOM BUY */
+
+.a {
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit; /* Hereda el color del texto del botón */
+}
+
+.a:visited {
+    color: inherit; /* Hereda el color del texto del botón para los enlaces visitados */
+}
+
+.button-container{
+    display: flex;
+    justify-content: space-around;
+}
+
 .products-container {
     padding: 19px;
     display: flex;
@@ -106,10 +193,6 @@ body {
 }
 
 @media(max-width: 745px) {
-    .container {
-        background-color: bisque;
-    }
-
     .product {
         padding: 45px;
         /*para dispositivos como tablets o celular, achico el tamanio del div de producto */
@@ -117,10 +200,6 @@ body {
 }
 
 @media(min-width: 951px) {
-    .container {
-        background-color: antiquewhite;
-    }
-
     .logo {
         left: 21px;
     }

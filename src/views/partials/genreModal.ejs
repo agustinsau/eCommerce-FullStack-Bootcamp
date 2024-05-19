@@ -2,25 +2,33 @@
 <link rel="stylesheet" href="/css/style.css">
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#genreModal">
   Agregar Genero
 </button>
 
-<!-- Modal Artista -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal Genero -->
+<div class="modal fade" id="genreModal" tabindex="-1" aria-labelledby="genreModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Genero</h1>
+        <h1 class="modal-title fs-5" id="genreModalLabel">Crear Genero</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+        <div class="modal-body">
+
+          <form>
+            <div class="mb-3">
+              <label for="genre" class="form-label">Nuevo Genero</label>
+              <input class="form-control" id="genre" placeholder="Ingrese nombre del Genero">
+              <div id="genre" class="form-text"></div>
+            </div>
+  
+            <button type="submit" class="btn btn-success">Crear</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+          </form>
+
+        </div>
     </div>
   </div>
 </div>

@@ -5,7 +5,61 @@
 
 <body>
     <main>
-        <div class="form-container">
+        <form action="/product/create" method="POST" class="row g-3">
+            <div class="col-md-6">
+                <label for="name" class="form-label">Nombre del Producto</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese el nombre del Producto" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="label" class="form-label">Sello Discografico</label>
+                <input type="text" class="form-control" id="label" name="label" placeholder="Ingrese Sello Discografico" required>
+            </div>
+
+            <div class="col-12">
+                <label for="format" class="form-label">Formato de Producto</label>
+                <input type="text" class="form-control" id="format" name="format" placeholder="Ingrese Formato del Producto" required>
+            </div>
+
+            <div class="col-12">
+                <label for="country" class="form-label">Pais Lanzamiento</label>
+                <input type="text" class="form-control" id="country" name="country" placeholder="Pais Origen del Producto" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="released" class="form-label">Fecha Lanzamiento</label>
+                <input type="number" class="form-control" id="released" name="released" placeholder="Año de Lanzamiento" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="price" class="form-label">Precio</label>
+                <input type="text" pattern="\d+(\.\d{1,2})?" class="form-control" id="price" name="price" placeholder="Ingrese un Precio" required>
+            </div>
+
+            <div class="col-md-1">
+                <label for="genre" class="form-label">Género</label>
+                <select name="genre" id="genre" class="form-select" required>
+                    <% genres.forEach(genre => { %>
+                        <option value="<%= genre.id_genre %>"><%= genre.name %></option>
+                    <% }); %>
+                </select>
+            </div>
+
+            <div class="col-md-1">
+                <label for="artist" class="form-label">Artista</label>
+                <select name="artist" id="artist" class="form-select" required>
+                    <% artists.forEach(artist => { %>
+                        <option value="<%= artist.id_artist %>"><%= artist.name %></option>
+                    <% }); %>
+                </select>
+            </div>
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-success">Agregar Producto</button>
+            </div>
+        </form>
+        
+        <!-- <div class="form-container">
             <form action="/product/create" method="POST">
     
                 <label for="name">Nombre del Producto: </label>
@@ -42,12 +96,9 @@
             
                 <button type="submit">Agregar Producto</button>
                 
-            </form>
+            </form> -->
     
         <!-- Botones para mostrar el modal -->
-        <h2>Necesitas agregar un Genero o Artista nuevo?</h2>
-        <button id="showArtistModal">Agregar Artista</button>
-        <button id="showGenreModal">Agregar Género</button>
 
         <%- include ('./partials/artistModal') %>
 

@@ -3,8 +3,12 @@
     <%- include ('./partials/header') %>
     
     <body>
+        
         <div>
             <h1>Listado de Productos Disponibles</h1>
+
+            <a href="/product/add">Agregar Nuevo Producto</a>
+            
             <ul>
                 <% products.forEach(product => { %>
                     <p> <%= product.product_name %> <%= product.country %> <%= product.product_format %> </p>           
@@ -26,8 +30,6 @@
 
                 <% }); %>
             </ul>
-
-            <a href="/product/add">Agregar Nuevo Producto</a>
 
         </div>
 
