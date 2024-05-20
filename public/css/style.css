@@ -53,6 +53,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 }
 
 .footer ul {
@@ -89,19 +90,16 @@ body {
     /* filtro de brillo al aplicar al logo cuando pase el mouse */
 }
 
-.product {
-    display: inline-grid;
-    justify-items: center;
-    padding: 80px;
-    margin: 4px;
-    background-color: rgb(227, 249, 227);
-    border-radius: 5px;
-}
+/* .product {
+    
+} */
 
 /* CARD */
 
 .custom-card {
-    width: 400px; /* Ajusta el ancho de la tarjeta */
+    width: 400px; 
+    margin-bottom: 45px;
+    margin-right: 20px;
 }
 
 .custom-carousel img {
@@ -129,6 +127,7 @@ body {
     text-transform: uppercase;
     color: var(--hover-color);
     z-index: 1;
+    left: -4px;
 }
 
 .button::before, .button::after {
@@ -182,22 +181,21 @@ body {
 
 .button-container{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .products-container {
-    padding: 19px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
+    flex-direction: row;
 }
 
-@media(max-width: 745px) {
+/* @media(max-width: 745px) {
     .product {
-        padding: 45px;
-        /*para dispositivos como tablets o celular, achico el tamanio del div de producto */
+        
     }
-}
+} */
 
 @media(min-width: 951px) {
     .logo {
@@ -205,7 +203,7 @@ body {
     }
 }
 
-@media(max-width: 565px) {
+@media(max-width: 816px) {
     .navbar ul li a {
         display: none;
     }

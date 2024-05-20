@@ -8,43 +8,61 @@
 
 <body>
     <main>
-        
-        <div class="container mt-5">
-            <div class="card custom-card shadow">
-                <div id="carouselExample" class="carousel slide custom-carousel" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-        
-                        <div class="carousel-item active">
-                            <img src="https://via.placeholder.com/600x400" class="d-block w-100" alt="...">
+
+
+        <div class="products-container mt-5">
+            <% products.forEach(product => { %>
+                <article class="product">
+                    <div class="card custom-card shadow">
+                        <div id="<%= product.id_product %>" class="carousel slide custom-carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://via.placeholder.com/600x400" class="d-block w-100" alt="...">
+                                </div>
+                
+                                <div class="carousel-item">
+                                    <img src="https://via.placeholder.com/600x400" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                
+                            <button class="carousel-control-prev" type="button" data-bs-target="#<%= product.id_product %>" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            </button>
+                
+                            <button class="carousel-control-next" type="button" data-bs-target="#<%= product.id_product %>" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            </button>
                         </div>
-        
-                        <div class="carousel-item">
-                            <img src="https://via.placeholder.com/600x400" class="d-block w-100" alt="...">
+                
+                        <div class="card-body">
+                            <h5 class="card-title"><%= product.product_name %></h5>
+                            <p class="card-text"> 
+                                <% artists.forEach(artist => { %>
+                                    <% if (product.artist_fk == artist.id_artist) { %>
+                                        <%= artist.name %>
+                                    <% } %>
+                                <% }); %> 
+                            </p>
+                            <p>$ <%= product.price %></p>
+                            
+                            <div class="button-container">
+                                <form action="/product/detail/<%= product.id_product %>" method="GET">
+                                    <label for="detail"></label>
+                                    <button class="button shadow" id="<%= product.id_product %>" type="submit" name="detail">VER DETALLES</button>
+                                </form>
+
+                                <form action="">
+                                    <label for="buy"></label>
+                                    <button class="button shadow" id="<%= product.id_product %>" type="submit" name="buy">COMPRAR</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
-        
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    </button>
-        
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    </button>
-                </div>
-        
-                <div class="card-body">
-                    <h5 class="card-title">Título de la Tarjeta</h5>
-                    <p class="card-text">Este es un ejemplo de tarjeta que contiene un carrusel de fotos.</p>
-        
-                    <div class="button-container">
-                        <button class="button shadow">COMPRAR</button>
-                        <button class="button shadow">VER DETALLES</button>
-                    </div>
-                </div>
-            </div>
+                </article>
+            <% }); %>
         </div>
         
-        <ul class="products-container">
+        <!-- <ul class="products-container">
             <% products.forEach(product => { %>
                 <div class="product">
                     <h2><%= product.product_name %></h2>
@@ -64,9 +82,8 @@
                         <button id="<%= product.id_product %>" type="submit" name="detail">Ver Detallado</button>
                     </form>
                 </div>        
-            <% }); %>   
-            
-        </ul>
+            <% }); %>      
+        </ul> -->
     </main>
 
     <%- include ('./partials/footer') %>
