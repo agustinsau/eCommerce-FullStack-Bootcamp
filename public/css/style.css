@@ -198,6 +198,18 @@ body {
     }
 } */
 
+.accordion-header-fixed {
+    display: flex;
+    justify-content: space-between;  
+}
+
+.accordion-title {
+    padding: 0.75rem 1.25rem;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+
 @media(min-width: 951px) {
     .logo {
         left: 21px;
