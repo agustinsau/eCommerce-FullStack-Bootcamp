@@ -19,8 +19,7 @@
                                 data-bs-target="#collapse<%= product.id_product %>" aria-expanded="false"
                                 aria-controls="collapse<%= product.id_product %>">
                                     <div class="col"><%= product.product_name %></div>
-                                    <div class="col"><%= product.artist.name %></div>
-                                <!-- <%= product.product_name %> (<%= product.artist.name %>)  -->
+                                    <div class="col"><%= product.artist.name %></div>                             
                             </button>
                         </h2>
                         <div id="collapse<%= product.id_product %>" class="accordion-collapse collapse" data-bs-parent="#accordionExample1">

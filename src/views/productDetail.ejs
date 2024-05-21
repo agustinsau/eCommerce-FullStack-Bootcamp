@@ -5,27 +5,29 @@
 
 <body>
 
-    <h2><%= product.product_name %></h2>
-    <br>
-    <p>Artista: <%= product.artist.name %></p>
-    <p>Sello Discografico: <%= product.label %></p>
-    <p>Formato del Producto: <%= product.product_format %></p>
-    <p>Pais de Lanzamiento: <%=  product.country %></p>
-    <p>Fecha de Lanzamiento: <%= product.released %></p>
-    <p>Genero Musical: <%= product.genre.name %></p>
-    <p>Precio Unitario: <%= product.price %></p>
-    
-    <br>
+    <div class="container">
+        <h2><%= product.product_name %></h2>
+        <br>
+        <p>Artista: <%= product.artist.name %></p>
+        <p>Sello Discografico: <%= product.label %></p>
+        <p>Formato del Producto: <%= product.product_format %></p>
+        <p>Pais de Lanzamiento: <%=  product.country %></p>
+        <p>Fecha de Lanzamiento: <%= product.released %></p>
+        <p>Genero Musical: <%= product.genre.name %></p>
+        <p>Precio Unitario: <%= product.price %></p>
+        
+        <br>
 
-    <!-- <form action="/product/edit/<%= product.id_product %>" method="GET">
-        <label for="update"></label>
-        <button id="<%= product.id_product %>" type="submit" name="update">Modificar</button>
-    </form>
+        <!-- <form action="/product/edit/<%= product.id_product %>" method="GET">
+            <label for="update"></label>
+            <button id="<%= product.id_product %>" type="submit" name="update">Modificar</button>
+        </form>
 
-    <form action="/product/delete/<%= product.id_product %>" method="GET">
-        <label for="delete"></label>
-        <button id="<%= product.id_product %>" type="submit" name="delete">Borrar</button>
-    </form> -->
+        <form action="/product/delete/<%= product.id_product %>" method="GET">
+            <label for="delete"></label>
+            <button id="<%= product.id_product %>" type="submit" name="delete">Borrar</button>
+        </form> -->
+    </div>
 
     <%- include ('./partials/footer') %>
 

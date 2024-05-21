@@ -1,10 +1,13 @@
 .navbar {
+    position: fixed;
+    top: 0;
+    width: -webkit-fill-available;
     background-color: #333;
     height: 80px;
-    /* Altura del navbar */
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 
 .navbar ul {
@@ -43,16 +46,15 @@ body {
 }
 
 .footer {
-    position: fixed;
-    bottom: 0;
+    bottom: -9.5rem;
     left: 0;
     width: 100%;
     height: 100px;
-    /* Altura del footer */
     background-color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     z-index: 1;
 }
 
@@ -190,6 +192,14 @@ body {
     flex-wrap: wrap;
     justify-content: space-evenly;
     flex-direction: row;
+    padding: 10rem 2rem 0rem;
+}
+
+.container{
+    height: 78.6vh;
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+    
 }
 
 /* @media(max-width: 745px) {
