@@ -4,6 +4,34 @@
     
     <body>  
         <div class="container">
+
+            <!-- <ul>
+                <% products.forEach(product => { %>
+                    <p> <%= product.product_name %> <%= product.country %> <%= product.product_format %> </p>           
+                
+                    <form action="/product/detail/<%= product.id_product %>" method="GET">
+                        <label for="detail"></label>
+                        <button id="<%= product.id_product %>" type="submit" name="detail">Ver Detallado</button>
+                    </form>
+
+                    <form action="/product/edit/<%= product.id_product %>" method="GET">
+                        <label for="update"></label>
+                        <button id="<%= product.id_product %>" type="submit" name="update">Modificar</button>
+                    </form>
+                    
+                    <form action="/product/delete/<%= product.id_product %>" method="GET">
+                        <label for="delete"></label>
+                        <button id="<%= product.id_product %>" type="submit" name="delete">Borrar</button>
+                    </form>
+
+                <% }); %>
+            </ul> -->
+
+            <form action="/product/add" method="GET">
+                <label for="detail"></label>
+                <button class="btn btn-success" type="submit" name="detail">Agregar Nuevo Producto</button>
+            </form>
+
             <h1 class="mb-4 mt-5">Listado de Productos Disponibles</h1>
 
             <div class="accordion-title accordion-header-fixed mb-2">
@@ -42,31 +70,7 @@
                         </div>
                     </div>
                 <% }); %>
-            </div>
-            
-                    
-            <!-- <ul>
-                <% products.forEach(product => { %>
-                    <p> <%= product.product_name %> <%= product.country %> <%= product.product_format %> </p>           
-                
-                    <form action="/product/detail/<%= product.id_product %>" method="GET">
-                        <label for="detail"></label>
-                        <button id="<%= product.id_product %>" type="submit" name="detail">Ver Detallado</button>
-                    </form>
-
-                    <form action="/product/edit/<%= product.id_product %>" method="GET">
-                        <label for="update"></label>
-                        <button id="<%= product.id_product %>" type="submit" name="update">Modificar</button>
-                    </form>
-                    
-                    <form action="/product/delete/<%= product.id_product %>" method="GET">
-                        <label for="delete"></label>
-                        <button id="<%= product.id_product %>" type="submit" name="delete">Borrar</button>
-                    </form>
-
-                <% }); %>
-            </ul> -->
-
+            </div>                 
         </div>
 
         <%- include ('./partials/footer') %>

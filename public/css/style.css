@@ -30,7 +30,6 @@
     border-radius: 4px;
     transition: background-color 0.4s;
     /* animar el cambio de color durante 0.3 segundos */
-
 }
 
 .navbar li a:hover {
@@ -46,7 +45,7 @@ body {
 }
 
 .footer {
-    bottom: -9.5rem;
+    margin-top: 4rem;
     left: 0;
     width: 100%;
     height: 100px;
@@ -54,7 +53,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    position: absolute;
     z-index: 1;
 }
 
@@ -93,9 +92,9 @@ body {
     /* filtro de brillo al aplicar al logo cuando pase el mouse */
 }
 
-/* .product {
-    
-} */
+.product {
+    font-size: 1.2em;
+} 
 
 /* CARD */
 
@@ -105,12 +104,36 @@ body {
     margin-right: 15px;
 }
 
-.custom-carousel img {
+.custom-carousel-card img {
     height: 250px; /* Ajusta la altura de las imágenes del carrusel */
     object-fit: cover; /* Asegura que las imágenes se ajusten bien dentro del carrusel */
 }
 
-/* BUTTOM BUY */
+/* PROD DETAIL */
+
+.prod-detail-car img {
+    height: 560px;
+    object-fit: contain;   
+}
+
+.prod-specs {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.prod-specs td { 
+    padding-right: 70px;
+  }
+
+/* modificacion de Bootstrap */
+.prod-detail-sect .carousel-control-next, .prod-detail-sect .carousel-control-prev {
+    width: 60%;
+}
+
+/* BUTTON BUY */
 
 .button {
     --color: #00A97F;
@@ -171,7 +194,7 @@ body {
     filter: brightness(.8);
 }
 
-/* BUTTOM BUY */
+/* BUTTON BUY */
 
 .a {
     text-decoration: none; /* Elimina el subrayado */
@@ -196,10 +219,19 @@ body {
 }
 
 .container{
-    height: 78.6vh;
+    height: 100vh;
     padding-top: 8rem;
-    padding-bottom: 5rem;
-    
+    padding-bottom: 5rem;   
+}
+
+/* PRODUCT DETAIL */
+.prod-detail-carousel{
+   width: 600px; 
+}
+
+.product-carousel {
+    display: flex;
+    overflow-x: scroll;
 }
 
 /* @media(max-width: 745px) {

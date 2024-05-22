@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <%- include ('./partials/header') %>
 
     <body>
@@ -9,7 +8,7 @@
                 <% products.forEach(product => { %>
                     <article class="product">
                         <div class="card custom-card shadow">
-                            <div id="<%= product.id_product %>" class="carousel slide custom-carousel">
+                            <div id="<%= product.id_product %>" class="carousel slide custom-carousel-card">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
                                         <img src="https://via.placeholder.com/600x400" class="d-block w-100" alt="...">
