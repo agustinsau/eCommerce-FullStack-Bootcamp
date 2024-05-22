@@ -21,11 +21,13 @@ const productsController = {
     list: (req, res) => {
         Promise.all([
             Products.findAll({
-                include: ['genre', 'artist'] //incluyo las tablas relacionadas con sus alias
-            })
+                include: ['artist']
+            }),
+            Genres.findAll(),
+            Artists.findAll() 
         ])
-        .then(([products]) => {
-            return res.render(path.resolve(__dirname, '..', 'views', 'productsList'), { products, title: "Listado de Productos" });
+        .then(([products, genres, artists]) => {
+            return res.render(path.resolve(__dirname, '..', 'views', 'productsList'), { products, genres, artists, title: "Listado de Productos" });
         })
         .catch(err => console.log(err));
     },

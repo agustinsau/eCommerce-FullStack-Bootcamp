@@ -1,0 +1,96 @@
+<!-- Button trigger modal -->
+
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productModal">Agregar Nuevo Producto</button>
+
+<!-- Modal Genero -->
+<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="productModalLabel">Nuevo Producto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body">
+
+          <form action="/product/create" method="POST" class="row g-3">
+            <div class="col-md-6">
+                <label for="name" class="form-label">Nombre del Producto</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese un Producto" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="label" class="form-label">Sello Discografico</label>
+                <input type="text" class="form-control" id="label" name="label" placeholder="Ingrese Sello Discografico" required>
+            </div>
+
+            <div class="col-12">
+                <label for="format" class="form-label">Formato de Producto</label>
+                <input type="text" class="form-control" id="format" name="format" placeholder="Ingrese Formato del Producto" required>
+            </div>
+
+            <div class="col-12">
+                <label for="country" class="form-label">Pais Lanzamiento</label>
+                <input type="text" class="form-control" id="country" name="country" placeholder="Pais Origen del Producto" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="released" class="form-label">Fecha Lanzamiento</label>
+                <input type="number" class="form-control" id="released" name="released" placeholder="Año de Lanzamiento" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="price" class="form-label">Precio</label>
+                <input type="number" pattern="\d+(\.\d{1,2})?" class="form-control" id="price" name="price" placeholder="Ingrese un Precio" required>
+            </div>
+
+            <div class="col-md-6">
+              <label for="genre" class="form-label">Género</label>
+              <select select name="genre" id="genre" class="form-select" required aria-label="Default select example">
+                <option value="" disabled selected>Selecciona un Genero</option>
+                <% genres.forEach(genre => { %>
+                  <option value="<%= genre.id_genre %>"><%= genre.name %></option>
+                <% }); %>
+              </select>
+            </div>
+            
+            <div class="col-md-6">
+              <label for="artist" class="form-label">Artista</label>
+                <select name="artist" id="artist" class="form-select" required>
+                    <option value="" disabled selected>Selecciona un Artista</option>
+                    <% artists.forEach(artist => { %>
+                        <option value="<%= artist.id_artist %>"><%= artist.name %></option>
+                    <% }); %>
+                </select>
+            </div>
+
+            <!-- <div class="col-md-1">
+                <label for="genre" class="form-label">Género</label>
+                <select name="genre" id="genre" class="form-select" required>
+                    <% genres.forEach(genre => { %>
+                        <option value="<%= genre.id_genre %>"><%= genre.name %></option>
+                    <% }); %>
+                </select>
+            </div>
+
+            <div class="col-md-1">
+                <label for="artist" class="form-label">Artista</label>
+                <select name="artist" id="artist" class="form-select" required>
+                    <% artists.forEach(artist => { %>
+                        <option value="<%= artist.id_artist %>"><%= artist.name %></option>
+                    <% }); %>
+                </select>
+            </div>
+            </div> -->
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-success">Agregar Producto</button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+            </div>
+          </form>
+
+        </div>
+    </div>
+  </div>
+</div>
+

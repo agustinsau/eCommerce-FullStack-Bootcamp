@@ -8,6 +8,8 @@ const methodOverride = require("method-override");
 //Routes
 const indexRouter = require('./routes/index');
 const productsRouter = require('./routes/productsRoutes');
+const genresRouter = require('./routes/genresRoutes');
+const artistsRouter = require('./routes/artistsRoutes');
 
 //ruta de vistas para view engine
 app.set( "view engine", "ejs" );
@@ -29,4 +31,12 @@ app.use('/', indexRouter);
 
 //ruta productos
 app.use(productsRouter);
+
+//ruta generos
+app.use(genresRouter);
+
+//ruta artistas
+app.use(artistsRouter);
+
+
 

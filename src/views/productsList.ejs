@@ -4,73 +4,67 @@
     
     <body>  
         <div class="container">
+            <section>  
+                <h1>Admin</h1> 
+                <div class="mb-3">
+                    <%- include ('./partials/newProdModal') %> 
+                </div>
 
-            <!-- <ul>
-                <% products.forEach(product => { %>
-                    <p> <%= product.product_name %> <%= product.country %> <%= product.product_format %> </p>           
+                <h2>Anadir un nuevo Artista o Genero?</h2>
+
+                <section class="d-flex">
+                    <div class="me-2">
+                        <%- include ('./partials/newArtistModal') %>
+                    </div>
+        
+                    <div>
+                        <%- include ('./partials/newGenreModal') %>
+                    </div>   
+                </section>
+                              
+            </section>
+
+            <section>
+                <h1 class="mb-4 mt-5">Listado de Productos Disponibles</h1>
+
+                <div class="accordion-title accordion-header-fixed mb-2">
+                    <div class="col">Nombre Producto</div>
+                    <div class="col me-3">Artista</div>
+                </div>
                 
-                    <form action="/product/detail/<%= product.id_product %>" method="GET">
-                        <label for="detail"></label>
-                        <button id="<%= product.id_product %>" type="submit" name="detail">Ver Detallado</button>
-                    </form>
-
-                    <form action="/product/edit/<%= product.id_product %>" method="GET">
-                        <label for="update"></label>
-                        <button id="<%= product.id_product %>" type="submit" name="update">Modificar</button>
-                    </form>
-                    
-                    <form action="/product/delete/<%= product.id_product %>" method="GET">
-                        <label for="delete"></label>
-                        <button id="<%= product.id_product %>" type="submit" name="delete">Borrar</button>
-                    </form>
-
-                <% }); %>
-            </ul> -->
-
-            <form action="/product/add" method="GET">
-                <label for="detail"></label>
-                <button class="btn btn-success" type="submit" name="detail">Agregar Nuevo Producto</button>
-            </form>
-
-            <h1 class="mb-4 mt-5">Listado de Productos Disponibles</h1>
-
-            <div class="accordion-title accordion-header-fixed mb-2">
-                <div class="col">Nombre Producto</div>
-                <div class="col me-3">Artista</div>
-            </div>
-            
-            <div class="accordion" id="accordionExample1">
-                <% products.forEach(product => { %>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header accordion-header-fixed">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapse<%= product.id_product %>" aria-expanded="false"
-                                aria-controls="collapse<%= product.id_product %>">
-                                    <div class="col"><%= product.product_name %></div>
-                                    <div class="col"><%= product.artist.name %></div>                             
-                            </button>
-                        </h2>
-                        <div id="collapse<%= product.id_product %>" class="accordion-collapse collapse" data-bs-parent="#accordionExample1">
-                            <div class="accordion-body">
-                                <form class="d-grid gap-2 col-6 mx-auto" action="/product/detail/<%= product.id_product %>" method="GET">
-                                    <label for="detail"></label>
-                                    <button id="<%= product.id_product %>" class="btn btn-primary" type="submit" name="detail">Ver Detallado</button>
-                                </form>
-            
-                                <form class="d-grid gap-2 col-6 mx-auto" action="/product/edit/<%= product.id_product %>" method="GET">
-                                    <label for="update"></label>
-                                    <button id="<%= product.id_product %>" class="btn btn-warning" type="submit" name="update">Modificar</button>
-                                </form>
-                                
-                                <form class="d-grid gap-2 col-6 mx-auto" action="/product/delete/<%= product.id_product %>" method="GET">
-                                    <label for="delete"></label>
-                                    <button id="<%= product.id_product %>" class="btn btn-danger" type="submit" name="delete">Borrar</button>
-                                </form>   
+                <div class="accordion" id="accordionExample1">
+                    <% products.forEach(product => { %>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header accordion-header-fixed">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse<%= product.id_product %>" aria-expanded="false"
+                                    aria-controls="collapse<%= product.id_product %>">
+                                        <div class="col"><%= product.product_name %></div>
+                                        <div class="col"><%= product.artist.name %></div>                             
+                                </button>
+                            </h2>
+                            <div id="collapse<%= product.id_product %>" class="accordion-collapse collapse" data-bs-parent="#accordionExample1">
+                                <div class="accordion-body">
+                                    <form class="d-grid gap-2 col-6 mx-auto" action="/product/detail/<%= product.id_product %>" method="GET">
+                                        <label for="detail"></label>
+                                        <button id="<%= product.id_product %>" class="btn btn-primary" type="submit" name="detail">Ver Detallado</button>
+                                    </form>
+                
+                                    <form class="d-grid gap-2 col-6 mx-auto" action="/product/edit/<%= product.id_product %>" method="GET">
+                                        <label for="update"></label>
+                                        <button id="<%= product.id_product %>" class="btn btn-warning" type="submit" name="update">Modificar</button>
+                                    </form>
+                                    
+                                    <form class="d-grid gap-2 col-6 mx-auto" action="/product/delete/<%= product.id_product %>" method="GET">
+                                        <label for="delete"></label>
+                                        <button id="<%= product.id_product %>" class="btn btn-danger" type="submit" name="delete">Borrar</button>
+                                    </form>   
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <% }); %>
-            </div>                 
+                    <% }); %>
+                </div>   
+            </section>               
         </div>
 
         <%- include ('./partials/footer') %>

@@ -5,7 +5,7 @@
 
 <body>
     <main>
-        <form action="/product/create" method="POST" class="row g-3">
+        <form action="/product/create" method="POST" class="row g-3"></form>
             <div class="col-md-6">
                 <label for="name" class="form-label">Nombre del Producto</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese el nombre del Producto" required>
@@ -100,9 +100,9 @@
     
         <!-- Botones para mostrar el modal -->
 
-        <%- include ('./partials/artistModal') %>
+        <%- include ('./partials/newArtistModal') %>
 
-        <%- include ('./partials/genreModal') %>
+        <%- include ('./partials/newGenreModal') %>
     
     </main>
 

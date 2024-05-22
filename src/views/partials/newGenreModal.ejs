@@ -17,11 +17,10 @@
       <div class="modal-body">
         <div class="modal-body">
 
-          <form>
-            <div class="mb-3">
-              <label for="genre" class="form-label">Nuevo Genero</label>
-              <input class="form-control" id="genre" placeholder="Ingrese nombre del Genero">
-              <div id="genre" class="form-text"></div>
+          <form action="/genre/create" method="POST">
+            <div class="col-md-6 mb-4">
+              <label for="genre_name" class="form-label">Nombre del Genero</label>
+              <input type="text" class="form-control" id="genre_name" name="genre_name" placeholder="Ingrese un Genero" required>
             </div>
   
             <button type="submit" class="btn btn-success">Crear</button>
