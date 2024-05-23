@@ -1,0 +1,26 @@
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#deleteModal">
+    Eliminar Producto
+</button> -->
+
+<!-- Modal Delete -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="deleteModalLabel">Eliminar Producto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-body">
+            <h4 class="mb-4">Esta seguro que desea eliminarlo?</h4>
+            <form id="delFormModal" action="" method="POST">
+                <label for="delete"></label>
+                <button class="btn btn-danger" type="submit" name="delete">Eliminar</button>
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

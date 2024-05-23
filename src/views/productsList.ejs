@@ -55,20 +55,23 @@
                                         <button id="<%= product.id_product %>" class="btn btn-warning" type="submit" name="update">Modificar</button>
                                     </form>
                                     
-                                    <form class="d-grid gap-2 col-6 mx-auto" action="/product/delete/<%= product.id_product %>" method="GET">
-                                        <label for="delete"></label>
-                                        <button id="<%= product.id_product %>" class="btn btn-danger" type="submit" name="delete">Borrar</button>
-                                    </form>   
+                                    <div>
+                                        <button id="<%= product.id_product %>" onclick="openDelModal('<%= product.id_product %>', '<%= product.product_name %>')" type="button" class="btn btn-danger d-grid gap-2 col-6 mx-auto mt-2" data-bs-toggle="modal" data-bs-target="#deleteModal">Borrar Producto</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     <% }); %>
-                </div>   
-            </section>               
+                </div>        
+            </section>            
+            
         </div>
+ 
+        <%- include ('./partials/deleteProdModal') %>
 
         <%- include ('./partials/footer') %>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="/js/delModalProdList.js"></script>
     </body>
 </html>
